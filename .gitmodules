@@ -1,0 +1,6 @@
+[submodule "cl-frontend"]
+	path = cl-frontend
+	url = https://github.com/yichen14/cl-frontend.git
+[submodule "cl_system"]
+	path = cl_system
+	url = https://github.com/wangzikui123/cl_system.git
