@@ -1,9 +1,19 @@
 import os
 import time
 import subprocess
+import argparse
+
+parser = argparse.ArgumentParser(description = "Continual Learning System")
+parser.add_argument('--boot_with_new_system', help="Define the boot option for our system", type=str, required=False, default='True')
+args = parser.parse_args()
+
 
 pid_list = []
-res1 = subprocess.Popen("cd cl_system; python3 main/web_app.py", shell=True)
+res1 = None
+if args.boot_with_new_system == 'True':
+    res1 = subprocess.Popen("cd cl_system; python3 main/web_app.py", shell=True)
+else:
+    res1 = subprocess.Popen("cd cl_system; python3 main/web_app.py --boot_with_new_system=False", shell=True)
 time.sleep(5)
 res2 = subprocess.Popen("cd cl-frontend; npm start", shell=True)
 time.sleep(5)
